@@ -1,9 +1,13 @@
 #pragma once
 
-class Horizontal : public NineByNine
+class Horizontal
 {
 public:
-	void read();
+	Horizontal(NineByNine board) {
+		read(board);
+	}
+	void read(NineByNine board);
+	int * getHorizontal(int x);
 	int * getHorizontal1();
 	int * getHorizontal2();
 	int * getHorizontal3();
@@ -25,43 +29,43 @@ private:
 	int horizontal9[9];
 };
 
-void Horizontal::read()
+void Horizontal::read(NineByNine board)
 {
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal1[i] = getNineByNine(0, i);
+		horizontal1[i] = board.getNineByNine(0, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal2[i] = getNineByNine(1, i);
+		horizontal2[i] = board.getNineByNine(1, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal3[i] = getNineByNine(2, i);
+		horizontal3[i] = board.getNineByNine(2, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal4[i] = getNineByNine(3, i);
+		horizontal4[i] = board.getNineByNine(3, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal5[i] = getNineByNine(4, i);
+		horizontal5[i] = board.getNineByNine(4, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal6[i] = getNineByNine(5, i);
+		horizontal6[i] = board.getNineByNine(5, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal7[i] = getNineByNine(6, i);
+		horizontal7[i] = board.getNineByNine(6, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal8[i] = getNineByNine(7, i);
+		horizontal8[i] = board.getNineByNine(7, i);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		horizontal9[i] = getNineByNine(8, i);
+		horizontal9[i] = board.getNineByNine(8, i);
 	}
 }
 
@@ -108,4 +112,34 @@ int * Horizontal::getHorizontal8()
 int * Horizontal::getHorizontal9()
 {
 	return horizontal9;
+}
+
+int * Horizontal::getHorizontal(int x) { //takes a row and returns all values in that row
+	if (x == 0) {
+		return horizontal1;
+	}
+	if (x == 1) {
+		return horizontal2;
+	}
+	if (x == 2) {
+		return horizontal3;
+	}
+	if (x == 3) {
+		return horizontal4;
+	}
+	if (x == 4) {
+		return horizontal5;
+	}
+	if (x == 5) {
+		return horizontal6;
+	}
+	if (x == 6) {
+		return horizontal7;
+	}
+	if (x == 7) {
+		return horizontal8;
+	}
+	if (x == 8) {
+		return horizontal9;
+	}
 }

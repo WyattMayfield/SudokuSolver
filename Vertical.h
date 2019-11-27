@@ -1,9 +1,13 @@
 #pragma once
 
-class Vertical : public NineByNine
+class Vertical
 {
 public:
-	void read();
+	Vertical(NineByNine board) {
+		read(board);
+	}
+	void read(NineByNine board);
+	int * getVertical(int);
 	int * getVertical1();
 	int * getVertical2();
 	int * getVertical3();
@@ -25,43 +29,43 @@ private:
 	int vertical9[9];
 };
 
-void Vertical::read()
+void Vertical::read(NineByNine board)
 {
 	for (int i = 0; i < 9; i++)
 	{
-		vertical1[i] = getNineByNine(i, 0);
+		vertical1[i] = board.getNineByNine(i, 0);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical2[i] = getNineByNine(i, 1);
+		vertical2[i] = board.getNineByNine(i, 1);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical3[i] = getNineByNine(i, 2);
+		vertical3[i] = board.getNineByNine(i, 2);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical4[i] = getNineByNine(i, 3);
+		vertical4[i] = board.getNineByNine(i, 3);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical5[i] = getNineByNine(i, 4);
+		vertical5[i] = board.getNineByNine(i, 4);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical6[i] = getNineByNine(i, 5);
+		vertical6[i] = board.getNineByNine(i, 5);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical7[i] = getNineByNine(i, 6);
+		vertical7[i] = board.getNineByNine(i, 6);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical8[i] = getNineByNine(i, 7);
+		vertical8[i] = board.getNineByNine(i, 7);
 	}
 	for (int i = 0; i < 9; i++)
 	{
-		vertical9[i] = getNineByNine(i, 8);
+		vertical9[i] = board.getNineByNine(i, 8);
 	}
 }
 
@@ -108,4 +112,34 @@ int * Vertical::getVertical8()
 int * Vertical::getVertical9()
 {
 	return vertical9;
+}
+
+int * Vertical::getVertical(int x) { //takes a col and returns all values in that col
+	if (x == 0) {
+		return vertical1;
+	}
+	if (x == 1) {
+		return vertical2;
+	}
+	if (x == 2) {
+		return vertical3;
+	}
+	if (x == 3) {
+		return vertical4;
+	}
+	if (x == 4) {
+		return vertical5;
+	}
+	if (x == 5) {
+		return vertical6;
+	}
+	if (x == 6) {
+		return vertical7;
+	}
+	if (x == 7) {
+		return vertical8;
+	}
+	if (x == 8) {
+		return vertical9;
+	}
 }
